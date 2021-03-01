@@ -4,7 +4,7 @@ pipeline {
         
            stage('Build') {
             steps {
-                 
+                sh 'make'
                 archiveArtifacts artifacts: '**/target/window.jar', fingerprint: true 
                 }
             }
