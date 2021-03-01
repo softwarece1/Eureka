@@ -4,8 +4,7 @@ pipeline {
         
            stage('Build') {
             steps {
-                sh 'mvn clean install'
-                //archiveArtifacts artifacts: '/target/window.jar', fingerprint: true 
+                echo "Building application.." 
                 }
             }
             
