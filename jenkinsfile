@@ -4,8 +4,8 @@ pipeline {
         
            stage('Build') {
             steps {
-                sh 'make'
-                archiveArtifacts artifacts: '/target/window.jar', fingerprint: true 
+                sh 'mvn clean install'
+                //archiveArtifacts artifacts: '/target/window.jar', fingerprint: true 
                 }
             }
             
