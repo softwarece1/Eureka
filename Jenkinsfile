@@ -1,4 +1,10 @@
 pipeline { 
+    environment {
+    registry = "softwarece1/Eureka"
+   dockerImage = ''
+  }
+    
+    
     agent any 
     
         stages { 
@@ -20,6 +26,15 @@ pipeline {
                 bat 'mvn package'
                 }
             }
+            
+            
+        stage('Building image') {
+            steps{
+                script {
+                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+     }
+    }
             
         }
     }
