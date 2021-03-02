@@ -1,14 +1,23 @@
 pipeline { 
     agent any 
-    environment{
-        NEW_VERSION='2.279'
-    }
+    
         stages { 
         
-           stage('Build') {
+           stage('Compile') {
             steps {
-                echo "Building application.." 
-                echo "Building version:${NEW_VERSION}"
+                sh 'mvn compile'
+                }
+            }
+            
+           stage('Test') {
+            steps {
+                sh 'mvn test'
+                }
+            }
+            
+           stage('Package') {
+            steps {
+                sh 'mvn package'
                 }
             }
             
